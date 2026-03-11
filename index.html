@@ -34,6 +34,19 @@
       padding: 0 3rem;
       overflow: hidden;
       border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .hero-headshot {
+      width: clamp(60px, 8vw, 110px);
+      height: clamp(60px, 8vw, 110px);
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      flex-shrink: 0;
+      filter: grayscale(15%);
     }
 
     .hero-words {
@@ -227,6 +240,7 @@
       <span class="hero-word">SHAWN X. HERNANDEZ</span>
     </div>
   </div>
+  </div>
 
   <!-- ── MAIN: two-column layout ── -->
   <div class="page-content">
@@ -242,13 +256,13 @@
       <div class="meta-block">
         <div class="meta-label">Contact</div>
         <div class="meta-value">
-          <a href="mailto:shawn@upenn.edu">shawn[at]upenn<br>[dot]edu</a>
+          <a href="/cdn-cgi/l/email-protection#4a39222b3d240a3f3a2f2424642f2e3f">shawn[at]upenn<br>[dot]edu</a>
         </div>
       </div>
 
       <div class="meta-block">
-        <div class="meta-label">Areas of Concentration</div>
-        <div class="meta-italic">
+        <div class="meta-label">Areas of Specialization</div>
+        <div class="meta-italic" style="white-space: nowrap;">
           Ethics<br>
           Metaethics
         </div>
@@ -257,9 +271,10 @@
       <div class="meta-block">
         <div class="meta-label">Areas of Interest</div>
         <div class="meta-italic" style="white-space: nowrap;">
-          Love<br>
-          Aesthetics<br>
-          Language
+          Political Philosophy<br>
+          Philosophy of Language<br>
+          Philosophy of Action<br>
+          Aesthetics
         </div>
       </div>
 
@@ -278,33 +293,27 @@
 
       <!-- About -->
       <div class="section-head" id="about">About</div>
-      <p>I'm a Philosophy Ph.D. candidate at the University of Pennsylvania, where I work at the intersection of ethics, political philosophy, and the moral questions that shape how we live together.</p>
-      <p>Alongside my research, I work as a lecturer designing philosophy curriculum for secondary and undergraduate students. My work is driven by the conviction that philosophy should be rigorous, accessible, and genuinely useful — not just true in the seminar, but illuminating in the world.</p>
+      <div style="display:flex; gap:2rem; align-items:flex-start; margin-bottom:1rem;">
+        <div style="flex:1;">
+          <p style="margin-bottom:1rem;">I'm a Philosophy Ph.D. candidate at the University of Pennsylvania. I grew up in Los Angeles and completed my M.A. at California State University, Long Beach.</p>
+          <p style="margin-bottom:1rem;">I'm also a musician and have been playing in metal bands since I was a teenager. My current project <a href="https://open.spotify.com/artist/1EOhB6Y1gGmYRkhoji822G" target="_blank" style="color: var(--ink);">Wounddress</a> is for my fellow emo kids who never grew up.</p>
+        </div>
+        <img src="data:image/jpeg;base64,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" alt="Shawn X. Hernandez" style="width:220px; height:280px; object-fit:cover; object-position:center top; border-radius:4px; flex-shrink:0;" />
+      </div>
 
       <hr class="rule" />
 
       <!-- Research -->
       <div class="section-head" id="research">Research</div>
-      <p>My dissertation investigates questions of justice and obligation — how the circumstances of birth, belonging, and social position shape what we owe one another. I am especially interested in the moral weight we assign to accidents of origin: birthplace, citizenship, family.</p>
+      <p>My dissertation is about love, respect, and what they have to do with each other. The central idea is that love is a creative emotion, and the best way to understand what that means is to rethink the ethics of respect from the ground up.</p>
 
       <div class="work-group">
-        <div class="work-group-label">work on borders &amp; belonging</div>
+        <div class="work-group-label">publications</div>
         <div class="work-entry">
-          <a href="#">The Accident of Birthplace</a> (in progress) — asks whether morally arbitrary facts about origin can ground legitimate claims of exclusion, and what Esperanza's story reveals about the ethics of borders.
+          <a href="https://philpapers.org/rec/LASPRF" target="_blank">Practical Reasons for Belief Without Stakes</a> (with N.G. Laskowski), <em>Analytic Philosophy</em>, 2021.
         </div>
-      </div>
-
-      <div class="work-group">
-        <div class="work-group-label">work on obligation &amp; moral standing</div>
         <div class="work-entry">
-          <a href="#">What We Owe Across Borders</a> (draft) — examines the relationship between political membership and moral obligation in an era of displacement and migration.
-        </div>
-      </div>
-
-      <div class="work-group">
-        <div class="work-group-label">work on technology &amp; ethics</div>
-        <div class="work-entry">
-          <a href="#">Digital Obligations</a> (in progress) — explores the moral dimensions of networked life and what obligations arise in cybersecurity and digital communities.
+          <a href="https://philpapers.org/rec/HERWMN" target="_blank">What Makes Normative Concepts Normative</a> (with N.G. Laskowski), <em>Southwest Philosophy Review</em>, 2021. Presidential Prize for best article by a junior scholar.
         </div>
       </div>
 
@@ -312,43 +321,31 @@
 
       <!-- Teaching -->
       <div class="section-head" id="teaching">Teaching</div>
-      <p>I design curriculum that brings ethical and political philosophy into conversation with the real dilemmas students encounter. I am currently developing a lesson package centered on the question:</p>
-      <p><em>Should the accident of Esperanza's birthplace affect what she is owed?</em> — using fiction as a vehicle for rigorous philosophical inquiry with 9th–10th grade students.</p>
-      <p>My public-facing work explores philosophy's relationship to technology, digital ethics, and the moral landscape of contemporary life.</p>
+      <p>I'm a first-generation college student, and a big part of what drives my teaching is helping the next generation of philosophers find their place and voice in the discipline. I teach at the University of Pennsylvania and in the greater Philadelphia area. I'm also a Philosopher-in-Residence at the Academy at Palumbo in collaboration with <a href="https://www.plato-philosophy.org" target="_blank" style="color: var(--ink); text-decoration: underline; text-underline-offset: 3px;">PLATO</a>, and a volunteer instructor for Penn's <a href="https://www.philosophy4young.org/" target="_blank" style="color: var(--ink); text-decoration: underline; text-underline-offset: 3px;">Philosophy for the Young</a>.</p>
 
-      <hr class="rule" />
-
-      <!-- CV -->
-      <div class="section-head" id="cv">CV</div>
-
-      <div style="margin-bottom:1.2rem;">
-        <div class="work-group-label" style="text-align:left; margin-bottom:0.6rem;">Education</div>
-        <div class="cv-row">
-          <span class="cv-year">Present</span>
-          <div class="cv-detail">
-            <strong>Ph.D. Candidate, Philosophy</strong>
-            <em>University of Pennsylvania</em>
-          </div>
+      <div class="work-group">
+        <div class="work-group-label">instructor of record</div>
+        <div class="work-entry">
+          Introduction to Philosophy, Summer 2026 (planned)
+        </div>
+        <div class="work-entry">
+          Introduction to Philosophy, Summer 2025
         </div>
       </div>
 
-      <div style="margin-bottom:1.2rem;">
-        <div class="work-group-label" style="text-align:left; margin-bottom:0.6rem;">Teaching</div>
-        <div class="cv-row">
-          <span class="cv-year">Present</span>
-          <div class="cv-detail">
-            <strong>Lecturer</strong>
-            <em>Philosophy curriculum, secondary &amp; undergraduate</em>
-          </div>
-        </div>
+      <div class="work-group">
+        <div class="work-group-label">teaching assistant</div>
+        <div class="work-entry">Ethics and Society (Dr. Paul Musso), Fall 2025 &amp; Spring 2025</div>
+        <div class="work-entry">The Social Contract (Dr. Jennifer Morton; Dr. Paul Musso), Spring 2025 &amp; Spring 2023</div>
+        <div class="work-entry">Knowledge and Reality (Dr. Daniel Singer), Fall 2024</div>
+        <div class="work-entry">Philosophy of Law (Dr. Carlos Pereira Di Salvo), Fall 2023</div>
       </div>
 
-      <p><a href="mailto:shawn@upenn.edu" class="cv-link">Request full CV →</a></p>
+
 
     </div>
+
   </div>
-
-
 
 </body>
 </html>
