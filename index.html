@@ -4,249 +4,185 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shawn X. Hernandez</title>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --ink: #1a1a18;
-      --paper: #f5f2ec;
-      --muted: #8a8578;
-      --accent: #2e4a3e;
-      --rule: #d9d4c7;
-      --serif: 'EB Garamond', Georgia, serif;
-      --mono: 'DM Mono', monospace;
+      --cream: #f2ede3;
+      --ink: #111110;
+      --mid: #7a7568;
+      --light: #c0bab0;
+      --rule: #d8d2c5;
+      --display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+      --body: 'EB Garamond', Georgia, serif;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--paper);
+      background: var(--cream);
       color: var(--ink);
-      font-family: var(--serif);
-      font-size: 18px;
+      font-family: var(--body);
+      font-size: 17px;
       line-height: 1.75;
     }
 
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 3rem;
-      background: var(--paper);
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .nav-name {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--ink); }
-
-    /* HERO */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: flex-end;
-      padding: 0 3rem 5rem;
+    /* ─── HERO ─── */
+    .hero {
       position: relative;
-    }
-
-    .hero-inner {
-      max-width: 820px;
-    }
-
-    .hero-label {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.2s forwards;
-    }
-
-    h1 {
-      font-size: clamp(3.2rem, 7vw, 6.5rem);
-      font-weight: 400;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.75rem;
-      opacity: 0;
-      animation: fadeUp 0.9s 0.4s forwards;
-    }
-
-    h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .hero-desc {
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 520px;
-      opacity: 0;
-      animation: fadeUp 0.9s 0.6s forwards;
-    }
-
-    .hero-scroll {
-      position: absolute;
-      bottom: 2.5rem;
-      right: 3rem;
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      writing-mode: vertical-rl;
-      opacity: 0;
-      animation: fadeIn 1s 1.2s forwards;
-    }
-
-    .hero-line {
-      position: absolute;
-      bottom: 0;
-      left: 3rem;
-      right: 3rem;
-      height: 1px;
-      background: var(--rule);
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 6rem 3rem;
+      padding: 0 3rem;
+      overflow: hidden;
       border-bottom: 1px solid var(--rule);
     }
 
-    .section-grid {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 3rem;
-      max-width: 900px;
-    }
-
-    .section-label {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding-top: 0.4rem;
-    }
-
-    .section-content h2 {
-      font-size: 1.9rem;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-      margin-bottom: 1.25rem;
-      line-height: 1.3;
-    }
-
-    .section-content p {
-      color: #3a3830;
-      margin-bottom: 1rem;
-      max-width: 600px;
-    }
-
-    /* PROJECTS */
-    .project-list {
+    .hero-words {
       display: flex;
-      flex-direction: column;
-      gap: 0;
+      justify-content: flex-start;
+      align-items: baseline;
+      gap: 0.35em;
     }
 
-    .project-item {
+    .hero-word {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(3rem, 7.5vw, 7.5rem);
+      line-height: 0.88;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--ink);
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    /* ─── MAIN CONTENT ─── */
+    .page-content {
       display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: start;
-      padding: 1.5rem 0;
-      border-top: 1px solid var(--rule);
-      cursor: default;
-      transition: background 0.2s;
-      gap: 2rem;
+      grid-template-columns: 1fr 1.45fr;
+      border-bottom: 1px solid var(--rule);
     }
 
-    .project-item:last-child { border-bottom: 1px solid var(--rule); }
+    /* Left col — metadata */
+    .col-left {
+      padding: 3rem 2.5rem 3rem 3rem;
+      border-right: 1px solid var(--rule);
+      text-align: right;
+    }
 
-    .project-title {
-      font-size: 1.15rem;
-      font-weight: 500;
+    .meta-block {
+      margin-bottom: 2rem;
+    }
+
+    .meta-label {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mid);
       margin-bottom: 0.3rem;
     }
 
-    .project-desc {
-      font-size: 0.95rem;
-      color: var(--muted);
+    .meta-value {
+      font-size: 0.9rem;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .meta-value a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .meta-value a:hover { color: var(--mid); }
+
+    .meta-italic {
       font-style: italic;
+      font-size: 0.88rem;
+      color: var(--mid);
     }
 
-    .project-tag {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.08em;
+    /* Right col — body */
+    .col-right {
+      padding: 3rem 3.5rem 3rem 3rem;
+    }
+
+    /* ─── SECTION HEADER inside right col ─── */
+    .section-head {
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: -0.01em;
       text-transform: uppercase;
-      color: var(--muted);
-      border: 1px solid var(--rule);
-      padding: 0.25rem 0.6rem;
-      border-radius: 2px;
-      white-space: nowrap;
-      margin-top: 0.2rem;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      color: var(--ink);
     }
 
-    /* CV */
-    .cv-block {
-      margin-bottom: 2.5rem;
+    p {
+      font-size: 0.97rem;
+      color: #2a2824;
+      margin-bottom: 1rem;
+      max-width: 520px;
     }
 
-    .cv-block h3 {
-      font-size: 1rem;
+    /* ─── RESEARCH ENTRIES ─── */
+    .work-group {
+      margin-bottom: 1.6rem;
+    }
+
+    .work-group-label {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .work-entry {
+      font-size: 0.94rem;
+      max-width: 520px;
+      margin-bottom: 0.6rem;
+      color: #2a2824;
+    }
+
+    .work-entry a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
       font-weight: 500;
-      margin-bottom: 0.75rem;
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
     }
 
-    .cv-entry {
+    .work-entry a:hover { color: var(--mid); }
+
+    /* ─── DIVIDER ─── */
+    hr.rule {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 2rem 0;
+    }
+
+    /* ─── CV TABLE ─── */
+    .cv-row {
       display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 1rem;
-      margin-bottom: 0.75rem;
-      font-size: 0.95rem;
+      grid-template-columns: 90px 1fr;
+      gap: 0.3rem 1rem;
+      font-size: 0.9rem;
+      margin-bottom: 0.7rem;
+      max-width: 520px;
     }
 
     .cv-year {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--muted);
+      color: var(--light);
+      font-size: 0.78rem;
       padding-top: 0.2rem;
+      font-family: var(--display);
+      font-weight: 800;
+      letter-spacing: 0.05em;
     }
 
     .cv-detail strong {
@@ -254,267 +190,165 @@
       font-weight: 500;
     }
 
-    .cv-detail span {
-      color: var(--muted);
-      font-style: italic;
-      font-size: 0.92rem;
+    .cv-detail em {
+      font-size: 0.86rem;
+      color: var(--mid);
     }
 
-    .cv-download {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 1.5rem;
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid var(--accent);
-      padding-bottom: 0.1rem;
-      transition: opacity 0.2s;
-    }
-
-    .cv-download:hover { opacity: 0.6; }
-
-    /* CONTACT */
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .contact-type {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      width: 80px;
-    }
-
-    .contact-value {
-      font-size: 1rem;
+    .cv-link {
+      font-size: 0.85rem;
       color: var(--ink);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
-    .contact-value:hover { border-color: var(--ink); }
+    .cv-link:hover { color: var(--mid); }
 
-    /* FOOTER */
-    footer {
-      padding: 2.5rem 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    footer p {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-    }
-
-    /* ANIMATIONS */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* RESPONSIVE */
+    /* ─── MOBILE ─── */
     @media (max-width: 680px) {
-      nav { padding: 1rem 1.5rem; }
-      #hero { padding: 0 1.5rem 4rem; }
-      section { padding: 4rem 1.5rem; }
-      .section-grid { grid-template-columns: 1fr; gap: 1rem; }
-      .cv-entry { grid-template-columns: 1fr; gap: 0.25rem; }
-      footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.5rem; }
+      .hero { padding: 0 1.2rem; }
+      .page-content { grid-template-columns: 1fr; }
+      .col-left {
+        border-right: none;
+        border-bottom: 1px solid var(--rule);
+        text-align: left;
+        padding: 2rem 1.5rem;
+      }
+      .col-right { padding: 2rem 1.5rem; }
+      .footer-mirror { padding: 0 1.2rem; }
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <span class="nav-name">Shawn X. Hernandez</span>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#cv">CV</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-inner">
-      <p class="hero-label">Ph.D. Candidate · University of Pennsylvania</p>
-      <h1>Shawn X.<br><em>Hernandez</em></h1>
-      <p class="hero-desc">Philosopher, lecturer, and researcher working at the intersections of ethics, political philosophy, and the questions that refuse easy answers.</p>
+  <!-- ── HERO: giant split headline ── -->
+  <div class="hero">
+    <div class="hero-words">
+      <span class="hero-word">SHAWN X. HERNANDEZ</span>
     </div>
-    <span class="hero-scroll">Scroll</span>
-    <div class="hero-line"></div>
-  </section>
+  </div>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-grid reveal">
-      <span class="section-label">About</span>
-      <div class="section-content">
-        <h2>Philosophy as a way of seeing clearly.</h2>
-        <p>I am a Ph.D. candidate in philosophy at the University of Pennsylvania, where my research engages questions of justice, obligation, and moral standing — particularly as they surface in political life and social institutions.</p>
-        <p>Alongside my research, I work as a lecturer, designing curriculum that brings philosophical rigor into conversation with the real dilemmas students face. I believe careful thinking is a skill anyone can develop — and that it matters.</p>
-        <p>My work draws on analytic ethics, political philosophy, and continental thought, and is animated by a commitment to ideas that are not merely true but <em>useful</em>.</p>
+  <!-- ── MAIN: two-column layout ── -->
+  <div class="page-content">
+
+    <!-- LEFT: right-aligned metadata -->
+    <aside class="col-left">
+
+      <div class="meta-block">
+        <div class="meta-label">Location</div>
+        <div class="meta-value">Philadelphia, PA</div>
       </div>
-    </div>
-  </section>
 
-  <!-- WORK / PROJECTS -->
-  <section id="work">
-    <div class="section-grid reveal">
-      <span class="section-label">Work</span>
-      <div class="section-content">
-        <h2>Research &amp; projects.</h2>
-        <div class="project-list">
-          <div class="project-item">
-            <div>
-              <div class="project-title">The Ethics of Borders</div>
-              <div class="project-desc">Philosophy curriculum centered on the moral weight of birthplace, using fiction as a philosophical entry point for 9th–10th grade students.</div>
-            </div>
-            <span class="project-tag">Curriculum</span>
-          </div>
-          <div class="project-item">
-            <div>
-              <div class="project-title">Dissertation Research</div>
-              <div class="project-desc">Ongoing doctoral work exploring questions of justice, obligation, and moral standing within political philosophy.</div>
-            </div>
-            <span class="project-tag">Research</span>
-          </div>
-          <div class="project-item">
-            <div>
-              <div class="project-title">Philosophy in the Classroom</div>
-              <div class="project-desc">Developing accessible, rigorous philosophy pedagogy for secondary and undergraduate students — making complex ideas classroom-ready.</div>
-            </div>
-            <span class="project-tag">Teaching</span>
-          </div>
-          <div class="project-item">
-            <div>
-              <div class="project-title">Ethics &amp; Technology</div>
-              <div class="project-desc">Exploring the moral dimensions of digital life, cybersecurity, and the obligations that arise in networked societies.</div>
-            </div>
-            <span class="project-tag">In Progress</span>
-          </div>
+      <div class="meta-block">
+        <div class="meta-label">Contact</div>
+        <div class="meta-value">
+          <a href="mailto:shawn@upenn.edu">shawn[at]upenn<br>[dot]edu</a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- CV -->
-  <section id="cv">
-    <div class="section-grid reveal">
-      <span class="section-label">CV</span>
-      <div class="section-content">
-        <h2>Curriculum vitae.</h2>
-
-        <div class="cv-block">
-          <h3>Education</h3>
-          <div class="cv-entry">
-            <span class="cv-year">Present</span>
-            <div class="cv-detail">
-              <strong>Ph.D. Candidate, Philosophy</strong>
-              <span>University of Pennsylvania</span>
-            </div>
-          </div>
+      <div class="meta-block">
+        <div class="meta-label">Areas of Concentration</div>
+        <div class="meta-italic">
+          Ethics<br>
+          Metaethics
         </div>
-
-        <div class="cv-block">
-          <h3>Teaching</h3>
-          <div class="cv-entry">
-            <span class="cv-year">Present</span>
-            <div class="cv-detail">
-              <strong>Lecturer</strong>
-              <span>Philosophy curriculum development, secondary & undergraduate levels</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="cv-block">
-          <h3>Research Interests</h3>
-          <div class="cv-entry">
-            <span class="cv-year"></span>
-            <div class="cv-detail">
-              <span>Ethics · Political Philosophy · Moral Standing · Philosophy of Technology · Pedagogy</span>
-            </div>
-          </div>
-        </div>
-
-        <a href="#contact" class="cv-download">Request full CV →</a>
       </div>
-    </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-grid reveal">
-      <span class="section-label">Contact</span>
-      <div class="section-content">
-        <h2>Get in touch.</h2>
-        <p style="margin-bottom: 2rem;">I'm open to conversations about research, teaching, collaboration, and philosophy. Don't hesitate to reach out.</p>
-        <div class="contact-links">
-          <div class="contact-item">
-            <span class="contact-type">Email</span>
-            <a href="mailto:shawn@upenn.edu" class="contact-value">shawn@upenn.edu</a>
-          </div>
-          <div class="contact-item">
-            <span class="contact-type">Institution</span>
-            <a href="https://www.upenn.edu" class="contact-value" target="_blank">University of Pennsylvania</a>
+      <div class="meta-block">
+        <div class="meta-label">Areas of Interest</div>
+        <div class="meta-italic" style="white-space: nowrap;">
+          Love<br>
+          Aesthetics<br>
+          Language
+        </div>
+      </div>
+
+      <div class="meta-block">
+        <div class="meta-label">Links</div>
+        <div class="meta-value">
+          <a href="#cv">CV</a><br>
+          <a href="https://philpeople.org" target="_blank">PhilPeople</a>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- RIGHT: body content -->
+    <div class="col-right">
+
+      <!-- About -->
+      <div class="section-head" id="about">About</div>
+      <p>I'm a Philosophy Ph.D. candidate at the University of Pennsylvania, where I work at the intersection of ethics, political philosophy, and the moral questions that shape how we live together.</p>
+      <p>Alongside my research, I work as a lecturer designing philosophy curriculum for secondary and undergraduate students. My work is driven by the conviction that philosophy should be rigorous, accessible, and genuinely useful — not just true in the seminar, but illuminating in the world.</p>
+
+      <hr class="rule" />
+
+      <!-- Research -->
+      <div class="section-head" id="research">Research</div>
+      <p>My dissertation investigates questions of justice and obligation — how the circumstances of birth, belonging, and social position shape what we owe one another. I am especially interested in the moral weight we assign to accidents of origin: birthplace, citizenship, family.</p>
+
+      <div class="work-group">
+        <div class="work-group-label">work on borders &amp; belonging</div>
+        <div class="work-entry">
+          <a href="#">The Accident of Birthplace</a> (in progress) — asks whether morally arbitrary facts about origin can ground legitimate claims of exclusion, and what Esperanza's story reveals about the ethics of borders.
+        </div>
+      </div>
+
+      <div class="work-group">
+        <div class="work-group-label">work on obligation &amp; moral standing</div>
+        <div class="work-entry">
+          <a href="#">What We Owe Across Borders</a> (draft) — examines the relationship between political membership and moral obligation in an era of displacement and migration.
+        </div>
+      </div>
+
+      <div class="work-group">
+        <div class="work-group-label">work on technology &amp; ethics</div>
+        <div class="work-entry">
+          <a href="#">Digital Obligations</a> (in progress) — explores the moral dimensions of networked life and what obligations arise in cybersecurity and digital communities.
+        </div>
+      </div>
+
+      <hr class="rule" />
+
+      <!-- Teaching -->
+      <div class="section-head" id="teaching">Teaching</div>
+      <p>I design curriculum that brings ethical and political philosophy into conversation with the real dilemmas students encounter. I am currently developing a lesson package centered on the question:</p>
+      <p><em>Should the accident of Esperanza's birthplace affect what she is owed?</em> — using fiction as a vehicle for rigorous philosophical inquiry with 9th–10th grade students.</p>
+      <p>My public-facing work explores philosophy's relationship to technology, digital ethics, and the moral landscape of contemporary life.</p>
+
+      <hr class="rule" />
+
+      <!-- CV -->
+      <div class="section-head" id="cv">CV</div>
+
+      <div style="margin-bottom:1.2rem;">
+        <div class="work-group-label" style="text-align:left; margin-bottom:0.6rem;">Education</div>
+        <div class="cv-row">
+          <span class="cv-year">Present</span>
+          <div class="cv-detail">
+            <strong>Ph.D. Candidate, Philosophy</strong>
+            <em>University of Pennsylvania</em>
           </div>
         </div>
       </div>
+
+      <div style="margin-bottom:1.2rem;">
+        <div class="work-group-label" style="text-align:left; margin-bottom:0.6rem;">Teaching</div>
+        <div class="cv-row">
+          <span class="cv-year">Present</span>
+          <div class="cv-detail">
+            <strong>Lecturer</strong>
+            <em>Philosophy curriculum, secondary &amp; undergraduate</em>
+          </div>
+        </div>
+      </div>
+
+      <p><a href="mailto:shawn@upenn.edu" class="cv-link">Request full CV →</a></p>
+
     </div>
-  </section>
+  </div>
 
-  <footer>
-    <p>© 2026 Shawn X. Hernandez</p>
-    <p>Ph.D. Candidate · University of Pennsylvania</p>
-  </footer>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>
